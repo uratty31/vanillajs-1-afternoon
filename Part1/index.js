@@ -26,7 +26,7 @@ function play(clickedId) {
   
 //   Assigning X & O to players 1 & 2
  
-  const whichPlayer =['PlayerOne', 'PlayerTwo']
+  let whichPlayer = ['PlayerOne', 'PlayerTwo']
    if (playerSpan.innerText === 'X') {
     whichPlayer = whichPlayer[0];
    } if (playerSpan.innerText === 'O') {
@@ -37,5 +37,36 @@ function play(clickedId) {
     if (topRight !== undefined && topRight === topCenter && topRight === topLeft) {
         alert( `${topRight} is the winner`);
         return;
+    }
+    if (middleRight !== undefined && middleRight === middleCenter && middleRight === middleLeft) {
+        alert( `${middleRight} is the winner`);
+        return;
+    }
+    if (bottomRight !== undefined && bottomRight === bottomCenter && bottomRight === bottomLeft) {
+        alert( `${bottomRight} is the winner`);
+    }
+    if (topRight !== undefined && topRight === middleRight && topRight === bottomRight) {
+        alert(`${topRight} is the winner`);
+    }
+    if (topCenter !== undefined && topCenter === middleCenter && topCenter === bottomCenter) {
+        alert(`${topCenter} is the winner`);
+    }
+    if (topLeft !== undefined && topLeft === middleLeft && topLeft === bottomLeft) {
+        alert(`${topLeft} is the winner`);
+    }
+    if (topRight !== undefined && topRight === middleCenter && topRight === bottomLeft) {
+        alert(`${topRight} is the winner`);
+    }
+    if (topLeft !== undefined && topLeft === middleCenter && topLeft === bottomRight) {
+        alert(`${topLeft} is the winner`);
+    }
+    let boardFull = true;
+    for (let i = 0; i <= 8; i++) {
+        if (board[i] === undefined) {
+            boardFull = false;
+            }
+        }
+        if (boardFull === true) {
+            alert('Cats game, no winner');
     }
 }
